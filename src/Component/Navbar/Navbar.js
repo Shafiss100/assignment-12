@@ -73,7 +73,7 @@ const Navbar = () => {
             <NavLink to={"/blog"}>Blogs</NavLink>
           </li>
           <li>
-            <NavLink to={"/portfolio"}>Portfolio</NavLink>
+            <NavLink to={"/portfolio"}>My Portfolio</NavLink>
           </li>
           {user ? (
             <>
