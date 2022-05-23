@@ -1,57 +1,100 @@
-import React from 'react';
+import React, { useState } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import auth from "./firebase.init";
+import {
+  useAuthState,
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
 
 const SignUp = () => {
-    return (
-      <div className="h-screen">
-        <div class="card  w-full max-w-sm shadow-2xl bg-base-100 mx-auto lg:my-20 sm:my-10">
-          <div class="card-body">
+  const navigate = useNavigate();
+  const [user, loading, error] = useAuthState(auth);
+
+  // const [errors, setError] = useState("");
+
+  const [
+    createUserWithEmailAndPassword,
+    signupUser,
+    Signuploading,
+    signupError,
+  ] = useCreateUserWithEmailAndPassword(auth);
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+  // if (error || signupError || updateError) {
+  //   setError(error|| signupError || updateError);
+  // }
+  // console.log(errors);
+
+  const emailSignup = async (event) => {
+    event.preventDefault();
+    const displayName = event.target.name.value;
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName });
+    if (user) {
+      navigate("/");
+    }
+  };
+  return (
+    <div className="h-screen">
+      <div className="card  w-full max-w-sm shadow-2xl bg-base-100 mx-auto lg:my-20 sm:my-10">
+        <div className="card-body">
+          <form onSubmit={emailSignup}>
             <h1 className="text-2xl">Sign up</h1>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">User name</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">User name</span>
               </label>
               <input
                 type="text"
                 placeholder="name"
-                class="input input-bordered"
+                name="name"
+                className="input input-bordered"
               />
             </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Email</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Email</span>
               </label>
               <input
                 type="text"
                 placeholder="email"
-                class="input input-bordered"
+                name="email"
+                className="input input-bordered"
               />
             </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Password</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Password</span>
               </label>
               <input
-                type="text"
+                type="password"
                 placeholder="password"
-                class="input input-bordered"
+                name="password"
+                className="input input-bordered"
               />
-              <label class="label">
-                <a href="#" class="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
+
+              <label className="label">
+                <Link to={"/login"} className="label-text-alt link link-hover">
+                  already have an acount acount
+                </Link>
               </label>
+              {/* <label htmlFor={errors}>p{errors.message}</label> */}
             </div>
-            <div class="form-control mt-6">
-              <button class="btn btn-primary">Login</button>
+            <div className="form-control mt-6">
+              <input
+                type={"submit"}
+                value={"sign up"}
+                className="btn btn-primary"
+              ></input>
             </div>
-            <div class="divider">OR</div>
-            <div class="form-control mt-6">
-              <button class="btn btn-primary">log in with google</button>
-            </div>
-          </div>
+          </form>
         </div>
       </div>
-    );
+    </div>
+  );
 };
 
 export default SignUp;
