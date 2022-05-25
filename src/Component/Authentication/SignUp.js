@@ -33,9 +33,18 @@ const SignUp = () => {
     const password = event.target.password.value;
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName });
-    if (user) {
-      navigate("/");
-    }
+    await fetch("http://localhost:5000/user", {
+      method: "POST",
+      body: JSON.stringify({
+        name: displayName,
+        email: email,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((res) => res.json())
+      .then(data => console.log(data));
   };
   return (
     <div className="h-screen">

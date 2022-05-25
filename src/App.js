@@ -14,6 +14,7 @@ import Tools from "./Component/Tools/Tools";
 import PageNotFound from "./Component/PageNotFound/PageNotFound";
 import Blogs from "./Component/Blogs/Blogs";
 import PortFolio from "./Component/Blogs/PortFolio";
+import Update from "./Component/Order.js/Update";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/parts" element={<Tools></Tools>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/update/:id" element={<Update></Update>}></Route>
         <Route path="/blog" element={<Blogs></Blogs>}></Route>
         <Route path="/portfolio" element={<PortFolio></PortFolio>}></Route>
         <Route path="*" element={<PageNotFound></PageNotFound>}></Route>

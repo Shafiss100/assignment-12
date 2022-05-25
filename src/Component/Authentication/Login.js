@@ -14,10 +14,6 @@ const Login = () => {
     const email = event.target.email.value;
     const password = event.target.password.value;
     signInWithEmailAndPassword(email, password);
-    if (user) {
-        navigate("/");
-        
-    }
   };
   return (
     <div className="h-screen">
