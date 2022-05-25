@@ -1,9 +1,13 @@
 import React from "react";
 import Carusel from "./Carusel";
+import Footer from "./Footer";
 
 const Home = () => {
   return (
-    <Carusel></Carusel>
+    <>
+      <Carusel></Carusel>
+      <Footer></Footer>
+    </>
   );
 };
 
