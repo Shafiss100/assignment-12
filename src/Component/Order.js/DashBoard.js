@@ -6,9 +6,7 @@ const DashBoard = () => {
       <div class="drawer drawer-mobile">
         <input id="dashboard dower" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content flex flex-col items-center justify-center">
-          
           <Outlet></Outlet>
-          
         </div>
         <div class="drawer-side">
           <label for="dashboard dower" class="drawer-overlay"></label>
@@ -21,6 +19,9 @@ const DashBoard = () => {
             </li>
             <li>
               <NavLink to={"/dashboard/addreview"}>Add review</NavLink>
+            </li>
+            <li>
+              <NavLink to={"/dashboard/addtools"}>Add tools</NavLink>
             </li>
           </ul>
         </div>

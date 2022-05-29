@@ -28,12 +28,12 @@ useEffect(() => {
       {profiles.map((profile) => (
         <div class="card-body">
           <h2 class="card-title">My profile</h2>
-          <h2>Name:{profile.name}</h2>
-          <h2>email:{profile.email}</h2>
-          <h2>Phone:{profile.phone}</h2>
-          <h2>Location:{profile.location}</h2>
-          <h2>Education:{profile.edu}</h2>
-          <h2>LinkIn profile link:{profile.linked}</h2>
+          <h2>Name : {profile.name}</h2>
+          <h2>email : {profile.email}</h2>
+          <h2>Phone : {profile.phone}</h2>
+          <h2>Location : {profile.location}</h2>
+          <h2>Education : {profile.edu}</h2>
+          <h2>LinkIn profile link : {profile.linked}</h2>
 
           <Link to={`/update/${profile._id}`}>
             <button className="btn ">Update</button>

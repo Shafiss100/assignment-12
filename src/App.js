@@ -1,10 +1,8 @@
-
 import Navbar from "./Component/Navbar/Navbar";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Component/Home/Home";
 import Login from "./Component/Authentication/Login";
 import SignUp from "./Component/Authentication/SignUp";
-import Purchase from "./Component/Order.js/Purchase";
 import RequireAuth from "./Component/Authentication/RequireAuth";
 import DashBoard from "./Component/Order.js/DashBoard";
 import MyProfile from "./Component/Order.js/MyProfile";
@@ -15,6 +13,9 @@ import PageNotFound from "./Component/PageNotFound/PageNotFound";
 import Blogs from "./Component/Blogs/Blogs";
 import PortFolio from "./Component/Blogs/PortFolio";
 import Update from "./Component/Order.js/Update";
+import Addtools from "./Component/Order.js/Addtools";
+import Purchase from "./Component/Tools/Purchase";
+import Payment from "./Component/Tools/Payment";
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/parts" element={<Tools></Tools>}></Route>
+        <Route path="/payment" element={<Payment></Payment>}></Route>
+        <Route path="/tools" element={<Tools></Tools>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/update/:id" element={<Update></Update>}></Route>
@@ -33,9 +35,10 @@ function App() {
           <Route path="profile" element={<MyProfile></MyProfile>} />
           <Route path="order" element={<Myorder></Myorder>} />
           <Route path="addreview" element={<AddReview></AddReview>} />
+          <Route path="addtools" element={<Addtools></Addtools>} />
         </Route>
         <Route
-          path="/purchase"
+          path="/purchase/:id"
           element={
             <RequireAuth>
               <Purchase></Purchase>

@@ -6,10 +6,10 @@ const Footer = () => {
         <div>
           
           <p class="font-bold text-white">
-            ACME Industries Ltd. <br />
-            Providing reliable tech since 1992
+          
+            Providing reliable tools since 1992
           </p>
-          <p>Copyright © 2022 - All right reserved</p>
+          <p className='text-white'>Copyright © 2022 - All right reserved</p>
         </div>
         <div>
           <div class="grid grid-flow-col gap-4">
