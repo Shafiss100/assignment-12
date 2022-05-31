@@ -6,23 +6,21 @@ import auth from "../Authentication/firebase.init";
 const MyProfile = () => {
   const [user, loading, error] = useAuthState(auth);
   const [profiles, setProfile] = useState([]);
-      
-useEffect(() => {
-      fetch(`http://localhost:5000/profile/${user?.email}`, {
-        method: "GET",
 
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          setProfile(data);
-        });
-}, []);
-  
-  
-  
+  useEffect(() => {
+    fetch(`https://warm-temple-42525.herokuapp.com/profile/${user?.email}`, {
+      method: "GET",
+
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setProfile(data);
+      });
+  }, []);
+
   return (
     <div class="card w-96 shadow-xl">
       {profiles.map((profile) => (

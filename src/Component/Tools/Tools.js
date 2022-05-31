@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const Tools = () => {
-   const [tools, settools] = useState([]);
+  const [tools, settools] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/alltools")
+    fetch("https://warm-temple-42525.herokuapp.com/alltools")
       .then((res) => res.json())
       .then((data) => {
         settools(data);
-        console.log(data)
+        console.log(data);
       });
   }, []);
   return (

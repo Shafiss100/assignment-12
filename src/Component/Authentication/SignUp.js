@@ -33,7 +33,7 @@ const SignUp = () => {
     const password = event.target.password.value;
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName });
-    await fetch("http://localhost:5000/user", {
+    await fetch("https://warm-temple-42525.herokuapp.com/user", {
       method: "POST",
       body: JSON.stringify({
         name: displayName,
@@ -44,7 +44,7 @@ const SignUp = () => {
       },
     })
       .then((res) => res.json())
-      .then(data => console.log(data));
+      .then((data) => console.log(data));
   };
   return (
     <div className="h-screen">

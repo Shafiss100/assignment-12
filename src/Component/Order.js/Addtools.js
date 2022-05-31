@@ -31,7 +31,7 @@ const Addtools = () => {
           const tq = data.tq;
           const mq = data.mq;
           const des = data.des;
-          fetch("http://localhost:5000/tools", {
+          fetch("https://warm-temple-42525.herokuapp.com/tools", {
             method: "POST",
             body: JSON.stringify({
               img,

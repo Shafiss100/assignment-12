@@ -4,25 +4,25 @@ import { Link, useParams } from "react-router-dom";
 import Payment from "./Payment";
 
 const Purchase = () => {
-    const [tools, setTools] = useState({});
-    const {
-      register,
-      handleSubmit,
-      watch,
-      formState: { errors },
-    } = useForm();
+  const [tools, setTools] = useState({});
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
   const { id } = useParams();
   useEffect(() => {
-    fetch(`http://localhost:5000/purchase?id=${id}`, {})
+    fetch(`https://warm-temple-42525.herokuapp.com/purchase?id=${id}`, {})
       .then((res) => res.json())
       .then((data) => {
         setTools(data);
       });
   }, []);
-    const purchaseData = (data) => {
-        const email = data.email;
-        console.log(email);
-    }
+  const purchaseData = (data) => {
+    const email = data.email;
+    console.log(email);
+  };
 
   return (
     <div className="flex">
@@ -69,7 +69,6 @@ const Purchase = () => {
           open modal
         </label>
       </form>
-      
 
       <input type="checkbox" id="payment-modal" class="modal-toggle" />
       <div class="modal">

@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import auth from "../Authentication/firebase.init";
 
 const Update = () => {
-   const [user, loading, error] = useAuthState(auth);
+  const [user, loading, error] = useAuthState(auth);
   const { id } = useParams();
   const navigate = useNavigate();
   const updateProfile = (event) => {
@@ -15,7 +15,7 @@ const Update = () => {
     const location = event.target.location.value;
     const edu = event.target.edu.value;
     const linked = event.target.linked.value;
-    fetch(`http://localhost:5000/update/${id}`, {
+    fetch(`https://warm-temple-42525.herokuapp.com/update/${id}`, {
       method: "PUT",
       body: JSON.stringify({
         name,
