@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const Tools = () => {
   const [tools, settools] = useState([]);
   useEffect(() => {
-    fetch("https://warm-temple-42525.herokuapp.com/alltools")
+    fetch("http://localhost:5000/alltools")
       .then((res) => res.json())
       .then((data) => {
         settools(data);
